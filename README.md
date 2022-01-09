@@ -46,3 +46,8 @@ emulate.cmd
 
 to open the debug console press the "|" key on your keyboard.
 
+# Resources #
+Below you can find a list of websites i use as resources when developing
+* [Opcodes](http://www.6502.org/tutorials/6502opcodes.html)
+* [Color palettes](https://en.wikipedia.org/wiki/List_of_video_game_console_palettes)
+* [Service manual](http://www.atarimania.com/documents-atari-2600-vcs-technical-documents_3_2.html)
