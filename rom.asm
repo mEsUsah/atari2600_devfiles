@@ -6,6 +6,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     processor 6502
+    include "vcs.h"
+    include "macro.h"
 
     seg code
     org $F000       ; Define the code origin at $F000
@@ -15,6 +17,8 @@ Start:
     cld             ; Disable BCD decimal math math mode
     ldx #$FF        ; Load the X register with #$FF. NB. literally load $FF into the register!
     txs             ; Transfer the X register to the Stack pointer register
+
+    CLEAN_START     ; Macro to safely clear the memory 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Code goes here!
