@@ -4,7 +4,7 @@ Simple template to make development a bit easier
 ## Build Dependencies ##
 I develop using WSL in Windows 10 to make the files on a debian based Linux box. Feel free to use Kali Linux, Ubuntu, Debian etc.
 
-You will need dasm for the assembly of the source code to machine code, and make to uatomate and simplyfy the build and test process.
+You will need [dasm](https://dasm-assembler.github.io/) to assembly the source code to machine code, and make to automate and simplify the build and test process.
 
 To install the dependencies you first need to add execution permission to the install scipt. Then you can run the script.
 ```
