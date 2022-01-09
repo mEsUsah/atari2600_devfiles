@@ -1,5 +1,7 @@
 # Atari 2600 dev template #
-Simple template to make development a bit easier
+Simple collection of scripts and templates for quality of life improvements when developing for the Atari 2600.
+
+Please follow visit my homepage and blog [haxor.no](https://www.haxor.no/) for more about me and my projects.
 
 ## Build Dependencies ##
 I develop using WSL in Windows 10 to make the files on a debian based Linux box. Feel free to use Kali Linux, Ubuntu, Debian etc.
