@@ -26,6 +26,27 @@ Start:
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Subroutine to handle horizontal positioning wiht fine offset
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; A is the target x-coordinate postition with fine offset
+;; Y is the object type (0:player0, 1:player1, 2:missile0, 3:missile1, 4:ball)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SetObjectXpos subroutine:
+    sta WSYNC                   ; start a fresh new scanline
+    sec                         ; make sure carry-flag is net before subtraction
+.Div15loop:
+    sbc #15                     ; subtract 14 from accumulator
+    bcs .Div15loop              ; loop until carry flag is set before subtraction
+    eor #7                      ; handle oppfset from -8 to 7
+    asl
+    asl
+    asl
+    asl                         ; four shifts left to get only the top 4bits
+    sta HMP0,Y                  ; store the fine offset to the correct HMxx
+    sta RESP0,Y                 ; fix object position in 15-step increments
+    rts                         ; return to sender
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Fill the ROM size to exactly 4KB
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
