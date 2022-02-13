@@ -28,9 +28,9 @@ Start:
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Subroutine to handle horizontal positioning wiht fine offset
+;; Subroutine to handle horizontal positioning with fine offset
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; A is the target x-coordinate postition with fine offset
+;; A is the target X-coordinate postition with fine offset
 ;; Y is the object type (0:player0, 1:player1, 2:missile0, 3:missile1, 4:ball)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SetObjectXpos subroutine:
@@ -51,6 +51,9 @@ SetObjectXpos subroutine:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Fill the ROM size to exactly 4KB
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Reset vector is located at memory address $FFFC
+; Interrupt vector is located at memory addred $FFFE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     org $FFFC
-    .word Start     ; Reset vector at $FFFC (where the program starts)
-    .word Start     ; Iterrup vector at $FFFE (unused int the VCS, but required by 6502 assembly)
+    .word Start     ; Reset vector (where the program starts)
+    .word Start     ; Interrup vector (required by the 6502 assembler)
